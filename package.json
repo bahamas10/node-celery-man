@@ -1,0 +1,23 @@
+{
+  "name": "celery-man",
+  "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
+  "description": "Computer load up celery man",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahamas10/node-celery-man.git"
+  },
+  "scripts": {},
+  "dependencies": {
+    "clear": "~ 0.0.1"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "bin": {
+    "celery-man": "./bin/celery-man.js"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "keywords": [ "paul rudd", "taeasgj!", "celery man", "4d3d3d3", "flarhgunnstow" ]
+}
