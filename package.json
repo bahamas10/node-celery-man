@@ -2,7 +2,7 @@
   "name": "celery-man",
   "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
   "description": "Computer load up celery man",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/bahamas10/node-celery-man.git"
