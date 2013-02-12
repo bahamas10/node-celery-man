@@ -7,13 +7,28 @@
  * Author: Dave Eddy <dave@daveeddy.com>
  */
 
-var fs = require('fs'),
-    path = require('path'),
-    clear = require('clear'),
-    delay = (+process.argv[2]) ? +process.argv[2] : 40, // ms
-    engage_delay = 1 * 500,
-    celery_path = path.join(__dirname, '../celery'),
-    celery = [];
+var fs = require('fs');
+var path = require('path');
+
+var clear = require('clear');
+var say = require('say');
+
+var delay = (+process.argv[2]) ? +process.argv[2] : 40; // ms
+var engage_delay = 500;
+var celery_path = path.join(__dirname, '../celery');
+var celery = [];
+
+var voices = [
+  {voice: 'zarvox', text: 'richardson richardson'},
+  {voice: 'trinoids', text: 'engaged'},
+  {voice: 'trinoids', text: '4d3d3d3'},
+  {voice: 'zarvox', text: 'magnus, magnus'},
+  {voice: 'trinoids', text: 'not suitable for work'},
+  {voice: 'alex', text: 'I have a beta sequence i\'ve been working on, would you like to see it?'},
+];
+
+var _v = voices[Math.floor(Math.random() * voices.length)];
+say.speak(_v.voice, _v.text);
 
 // Load up the celery man
 process.stdout.write('4d3d3d3... ');

@@ -10,7 +10,8 @@
   "scripts": {},
   "dependencies": {
     "clear": "~ 0.0.1",
-    "log-timestamp": "0.0.5"
+    "log-timestamp": "0.0.5",
+    "say": "~0.5.0"
   },
   "devDependencies": {},
   "optionalDependencies": {},
