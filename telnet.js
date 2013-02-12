@@ -41,13 +41,11 @@ var server = net.createServer(function(socket) {
   var i = 0;
   var interval;
   setTimeout(function() {
-    socket.write(clear());
+    trywrite(clear());
     interval = setInterval(function() {
       // Hat Wobble
-      try {
-        socket.write(clear(false));
-        socket.write(celery[i]);
-      } catch (e) {}
+      trywrite(clear(false));
+      trywrite(celery[i]);
       i = (i + 1) % celery.length;
     }, delay);
   }, engage_delay);
@@ -73,6 +71,12 @@ var server = net.createServer(function(socket) {
       interval = null;
     }
     if (socket) socket.end();
+  }
+
+  function trywrite(s) {
+    try {
+      socket.write(s);
+    } catch (e) {}
   }
 });
 
