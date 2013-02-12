@@ -9,7 +9,8 @@
   },
   "scripts": {},
   "dependencies": {
-    "clear": "~ 0.0.1"
+    "clear": "~ 0.0.1",
+    "log-timestamp": "0.0.5"
   },
   "devDependencies": {},
   "optionalDependencies": {},
@@ -19,5 +20,11 @@
   "engines": {
     "node": "*"
   },
-  "keywords": [ "paul rudd", "taeasgj!", "celery man", "4d3d3d3", "flarhgunnstow" ]
+  "keywords": [
+    "paul rudd",
+    "taeasgj!",
+    "celery man",
+    "4d3d3d3",
+    "flarhgunnstow"
+  ]
 }

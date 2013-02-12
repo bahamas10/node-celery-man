@@ -1,7 +1,6 @@
 var net = require('net');
 var fs = require('fs');
 var path = require('path');
-var spawn = require('child_process').spawn;
 
 var delay = 40;
 var engage_delay = 500;
@@ -11,6 +10,8 @@ var port = +process.argv[2] || 23;
 
 var BREAK = new Buffer('fff4fffd06', 'hex').toString();
 var EOF = new Buffer('ffec', 'hex').toString();
+
+require('log-timestamp');
 
 var conns = [];
 
