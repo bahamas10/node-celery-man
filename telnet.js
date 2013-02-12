@@ -9,8 +9,11 @@ var celery_path = path.join(__dirname, './celery');
 var celery = [];
 var port = +process.argv[2] || 23;
 
+var BREAK = new Buffer('fff4fffd06', 'hex').toString();
+var EOF = new Buffer('ffec', 'hex').toString();
+
 console.log('loading 4d3d3d3...');
-fs.readdirSync(celery_path).forEach(function(file, i) {
+fs.readdirSync(celery_path).sort().forEach(function(file, i) {
   celery[i] = fs.readFileSync(path.join(celery_path, file), 'ascii');
 });
 console.log('engaged');
@@ -41,9 +44,20 @@ var server = net.createServer(function(socket) {
   }, engage_delay);
 
   // close the interval for celery man
-  socket.on('end', function() {
-    clearInterval(interval);
+  socket.on('end', end);
+  socket.on('data', function(data) {
+    data = data.toString();
+    if (data === BREAK || data === EOF) end();
   });
+
+  function end() {
+    console.log('connection closed');
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    if (socket) socket.end();
+  }
 });
 
 server.listen(port);

@@ -17,7 +17,7 @@ var fs = require('fs'),
 
 // Load up the celery man
 process.stdout.write('4d3d3d3... ');
-fs.readdirSync(celery_path).forEach(function(file, i) {
+fs.readdirSync(celery_path).sort().forEach(function(file, i) {
   celery[i] = fs.readFileSync(path.join(celery_path, file), 'ascii');
 });
 console.log('engaged');
