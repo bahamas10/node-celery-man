@@ -44,8 +44,10 @@ var server = net.createServer(function(socket) {
     socket.write(clear());
     interval = setInterval(function() {
       // Hat Wobble
-      socket.write(clear(false));
-      socket.write(celery[i]);
+      try {
+        socket.write(clear(false));
+        socket.write(celery[i]);
+      } catch (e) {}
       i = (i + 1) % celery.length;
     }, delay);
   }, engage_delay);
