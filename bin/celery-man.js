@@ -9,9 +9,9 @@
 
 var fs = require('fs');
 var path = require('path');
+var spawn = require('child_process').spawn;
 
 var clear = require('clear');
-var say = require('say');
 
 var delay = (+process.argv[2]) ? +process.argv[2] : 40; // ms
 var engage_delay = 500;
@@ -28,7 +28,7 @@ var voices = [
 ];
 
 var _v = voices[Math.floor(Math.random() * voices.length)];
-say.speak(_v.voice, _v.text);
+spawn('say', ['-v', _v.voice, _v.text]);
 
 // Load up the celery man
 process.stdout.write('4d3d3d3... ');
