@@ -35,7 +35,7 @@ var server = net.createServer(function(socket) {
   var r_port = socket.remotePort;
   console.log('CONNECT %s on %d (%d connected clients)',
       r_addr, r_port, conns.length);
-  socket.write('4d3d3d3... ');
+  trywrite('4d3d3d3... ');
 
   // Flarhgunnstow
   var i = 0;
