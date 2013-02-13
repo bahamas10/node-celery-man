@@ -40,7 +40,7 @@ var server = net.createServer(function(socket) {
   // Flarhgunnstow
   var i = 0;
   var interval;
-  setTimeout(function() {
+  var timeout = setTimeout(function() {
     trywrite(clear());
     interval = setInterval(function() {
       // Hat Wobble
@@ -66,6 +66,10 @@ var server = net.createServer(function(socket) {
       console.log('DISCONNECT %s on %d (%d connected clients)',
           r_addr, r_port, conns.length);
 
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
     if (interval) {
       clearInterval(interval);
       interval = null;
