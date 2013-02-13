@@ -78,6 +78,7 @@ var server = net.createServer(function(socket) {
   }
 
   function trywrite(s) {
+    if (!socket.writable) return;
     try {
       socket.write(s);
     } catch (e) {}
